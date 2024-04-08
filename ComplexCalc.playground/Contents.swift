@@ -73,6 +73,33 @@ class Calculator {
         }
         return result
     }
+    
+    func add(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        let xTotal = lhs.0 + rhs.0
+        let yTotal = lhs.1 + rhs.1
+        return (xTotal, yTotal)
+    }
+    func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        let xTotal = lhs.0 - rhs.0
+        let yTotal = lhs.1 - rhs.1
+        return (xTotal, yTotal)
+    }
+    func add(lhs: [String : Int], rhs: [String : Int]) -> [String : Int] {
+        guard let lx = lhs["x"], let ly = lhs["y"], let rx = rhs["x"], let ry = rhs["y"] else {
+            fatalError("Invalid point format")
+        }
+        let xTotal = lx + rx
+        let yTotal = ly + ry
+        return ["x" : xTotal, "y" : yTotal]
+    }
+    func subtract(lhs: [String : Int], rhs: [String : Int]) -> [String : Int] {
+        guard let lx = lhs["x"], let ly = lhs["y"], let rx = rhs["x"], let ry = rhs["y"] else {
+            fatalError("Invalid point format")
+        }
+        let xTotal = lx - rx
+        let yTotal = ly - ry
+        return ["x" : xTotal, "y" : yTotal]
+    }
 }
 
 //: Don't change the name of this object (`calc`); it's used in all the tests.
